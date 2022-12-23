@@ -125,8 +125,8 @@ app.get('/login', (req, res) => {
 
 // logging in 
 app.post('/loggedin', [
-    check('user').isAlphanumeric(),
-    check('pass').isLength({ min: 8 }).matches('[0-9]').matches('[A-Z]').matches('[a-z]')
+    check('username').isAlphanumeric(),
+    check('password').isLength({ min: 8 }).matches('[0-9]').matches('[A-Z]').matches('[a-z]')
 ],(req, res) => {
     // user object for sanitised form inputs
     let user = {username: req.sanitize(req.body.username), password: req.sanitize(req.body.password)};
