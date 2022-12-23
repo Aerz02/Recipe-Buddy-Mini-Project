@@ -135,7 +135,7 @@ app.post('/loggedin', (req, res) => {
         console.log(err.message);
         // checks if an empty set is returned
         else if (result.length === 0) 
-            res.send("User " + user.username + " doesn't exists. If you want you can register with it. " + '<a href=./register>Register page</a>' + '<a href=./>Home page</a>')
+            res.send("User " + user.username + " doesn't exists. If you want you can register with it. " + '<a href=./register>Register page</a>' + '<br> <a href=./>Home page</a>')
         // user exists
         else {
             console.log("User " + user.username + " does exist.");
