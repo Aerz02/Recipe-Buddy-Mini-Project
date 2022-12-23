@@ -50,3 +50,7 @@ Requirements that I have completed are as followed:
   - update-search-result route at index.js line: 224
   - foodupdated route at index.js lines: 240 - 249
   - fooddeleted route at index.js line: 286
+  
+* **R12: Virtual Server**
+  - Your dynamic web application must be implemented in Node.js on your virtual server. The back-end of the web application could be MongoDB or MySQL. Make sure you have included comments in your code explaining all sections of the code including database interactions.
+  - As you can see above, you need your own model (backend data structure), your own operations on that model, and the ability to access those operations through the web and (to some extent) through an API. Your dynamic web application has a database backend that implements CRUD operations (the database can be MySQL or MongoDB)
