@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <title>Update food</title>
+</head>
+<body>
+    <% if (!loggedin) { %>
+        <%- include("partials/navbar.ejs") %>
+    <% } else { %>
+        <%- include("partials/navbar loggedin.ejs") %>
+    <% } %>
+    <script defer>
+        function getSelectedOption() {
+            let options = document.getElementsByTagName("option");
+            console.log(options);
+            for (let i = 1; i < options.length; i++){
+                if (options[i].selected) return options[i].text;
+            }
+        }
+
+        function fillOut(selectedOption){
+           console.log(selectedOption);
+        }
+    </script>
+    <h1>Update food</h1>
+    <form method="POST" action="/foodupdated">
+        <% if (foods.length > 1){ %>
+            <p>Name: 
+            <select id="name" type="text" name="name" value="Please choose an option" onchange="getSelectedOption()" >
+            <option>Please select which <%= searchedFood %> you want to update</option>
+            <% foods.forEach(food => { %>
+            <option onselect="fillOut(this.value)" value="<%= food.name%>"><%= food.name%></option>
+        <%})%>
+        </select>
+        </p>
+        <p>Typical values per: <input id="typical_value" type="number" name="typical_value" value="" /></p>
+        <p>Unit of the typical value: <input id="typical_value_unit" type="text" name="typical_value_unit" value="" /></p>
+        <p>Carbs: <input id="carbs" type="number" step="0.01" name="carbs" value="" /></p>
+        <p>Fats: <input id="fats" type="number" step="0.01" name="fats" value="" /></p>
+        <p>Protein: <input id="protein" type="number" step="0.01" name="protein" value="" /></p>
+        <p>Salt: <input id="salt" type="number" step="0.01" name="salt" value="" /></p>
+        <p>Sugar: <input id="sugar" type="number" step="0.01" name="sugar" value="" /></p>
+        <% } else {%>
+            <p>Name: <input id="name" type="text" name="name" value="<%= foods[0].name %>"/></p>
+            <p>Typical values per: <input id="typical_value" type="number" name="typical_value" value="<%= foods[0].typical_value %>" /></p>
+            <p>Unit of the typical value: <input id="typical_value_unit" type="text" name="typical_value_unit" value="<%= foods[0].typical_value_unit %>" /></p>
+            <p>Carbs: <input id="carbs" type="number" step="0.01" name="carbs" value="<%= foods[0].carbs%>" /></p>
+            <p>Fats: <input id="fats" type="number" step="0.01" name="fats" value="<%=foods[0].fats%>" /></p>
+            <p>Protein: <input id="protein" type="number" step="0.01" name="protein" value="<%=foods[0].protein%>" /></p>
+            <p>Salt: <input id="salt" type="number" step="0.01" name="salt" value="<%= foods[0].salt %>" /></p>
+            <p>Sugar: <input id="sugar" type="number" step="0.01" name="sugar" value="<%=foods[0].sugar%>" /></p>
+         <% } %>    
+        <input type="submit" value="Update food"/>
+        <input formaction="/fooddeleted" type="submit" value="Delete Food">
+    </form>
+</body>
+</html>

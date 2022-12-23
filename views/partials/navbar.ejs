@@ -1,0 +1,32 @@
+
+<link rel="stylesheet" href="css/navbar.css">
+<script defer>
+  function toggleMenu(){
+    const toggleButton = document.getElementsByClassName('toggle-button')[0]
+    const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+    toggleButton.addEventListener('click', () => {
+      navbarLinks.classList.toggle('active')
+    });
+  }
+</script>
+<nav class="navbar">
+  <div class="app-title"> <%= appName %> </div>
+  <a href="#" class="toggle-button" onclick="toggleMenu()">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span> 
+  </a>
+  <div class="navbar-links">
+    <ul>
+      <li><a href="/" name="home page link">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/addfood">Add food</a></li>
+      <li><a href="/searchfood">Search food</a></li>
+      <li><a href="/listfood">List food</a></li>
+      <li><a href="/updatefood">Update food</a></li>
+      <li><a href="/api">API</a></li>
+      <li><a href="/register">Sign up</a></li>
+      <li><a href="/login">Login</a></li>
+    </ul>
+  </div>
+</nav>

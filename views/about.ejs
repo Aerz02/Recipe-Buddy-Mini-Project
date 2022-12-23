@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <title>About <%=appName%></title>
+</head>
+<body>
+    <% if (!loggedin) { %>
+        <%- include("partials/navbar.ejs") %>
+    <% } else { %>
+        <%- include("partials/navbar loggedin.ejs") %>
+    <% } %> 
+    <h1>About <%=appName%></h1>
+</body>
+</html>

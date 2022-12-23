@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <title>List food</title>
+</head>
+<body>
+    <% if (!loggedin) { %>
+        <%- include("partials/navbar.ejs") %>
+    <% } else { %>
+        <%- include("partials/navbar loggedin.ejs") %>
+    <% } %> 
+    <h1>List food</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Typical Value</th>
+            <th>Typical Value Unit</th>
+            <th>Carbs</th>
+            <th>Fats</th>
+            <th>Protein</th>
+            <th>Salt</th>
+            <th>Sugar</th>
+            <th>Added by</th>
+        </tr>
+        <% foods.forEach(food => { %>
+            <tr>
+                <td><%= food.name %></td>
+                <td><%= food.typical_value %></td>
+                <td><%= food.typical_value_unit %></td>
+                <td><%= food.carbs %> <%= food.typical_value_unit %></td>
+                <td><%= food.fats %> <%= food.typical_value_unit %></td>
+                <td><%= food.protein %> <%= food.typical_value_unit %></td>
+                <td><%= food.salt %> <%= food.typical_value_unit %></td>
+                <td><%= food.sugar %> <%= food.typical_value_unit %></td>
+                <td><%= food.username %></td>
+            </tr>
+        <%}); %> 
+    </table>
+</body>
+</html>

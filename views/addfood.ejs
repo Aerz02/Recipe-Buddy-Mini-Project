@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  type="text/css" href="css/style.css" />
+    <title>Add food</title>
+</head>
+<body>
+    <% if (!loggedin) { %>
+        <%- include("partials/navbar.ejs") %>
+    <% } else { %>
+        <%- include("partials/navbar loggedin.ejs") %>
+    <% } %>    
+    <h1>Add food</h1>
+    <form method="POST" action="/foodadded">
+        <p>Name: <input id="name" type="text" name="name" placeholder="Name"/></p>
+        <p>Typical values per: <input id="typical_value" type="number" name="typical_value" placeholder="typical value"/></p>
+        <p>Unit of the typical value: <input id="typical_value_unit" type="text" name="typical_value_unit" placeholder="typical value unit"/></p>
+        <p>Carbs: <input id="carbs" type="number" step="0.01" name="carbs" placeholder="carbs"/></p>
+        <p>Fats: <input id="fats" type="number" step="0.01" name="fats" placeholder="fats"/></p>
+        <p>Protein: <input id="protein" type="number" step="0.01" name="protein" placeholder="protein"/></p>
+        <p>Salt: <input id="salt" type="number" step="0.01" name="salt" placeholder="salt"/></p>
+        <p>Sugar: <input id="sugar" type="number" step="0.01" name="sugar" placeholder="sugar"/></p>
+        <input type="submit" value="Add food" />
+    </form>
+</body>
+</html>
