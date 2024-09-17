@@ -30,7 +30,7 @@ app.use(session({
 const db = mysql.createConnection ({
     host: 'localhost',
     user: 'root',
-    password: 'Samsung001234!!',
+    password: '****************',
     database: 'RecipeBuddy'
 });
 // Connect to the database
